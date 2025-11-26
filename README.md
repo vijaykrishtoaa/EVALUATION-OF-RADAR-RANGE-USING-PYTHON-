@@ -26,7 +26,48 @@ transmitter gain, receiver gain, radar frequency, radar cross section, and minim
 
 
    ___Algorithm__:
-   
+   10
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+Pt = 1000
+G = 40
+lambda_ = 0.05
+sigma = 10
+pi4 = (4 * np.pi) ** 3
+
+R = np.linspace(1e3, 200e3, 500)
+Pr_R = (Pt * G*2 * lambda_2 * sigma) / (pi4 * R*4)
+plt.figure()
+Pr_R_dB = 10 * np.log10(Pr_R)
+plt.plot(R / 1000, Pr_R_dB)
+plt.xlabel("Power Received")
+plt.ylabel("Range")
+plt.show()
+
+Pt_values = np.linspace(100, 10000, 500)
+R_fixed = 50e3
+Pr_Pt = (Pt_values * G*2 * lambda_2 * sigma) / (pi4 * R_fixed*4)
+plt.figure()
+plt.plot(Pt_values, Pr_Pt)
+plt.xlabel("Power Received")
+plt.ylabel("Power Transmitted")
+plt.show()
+
+G_values = np.linspace(5, 60, 500)
+Pt_fixed = 3000
+Pr_G = (Pt_fixed * G_values*2 * lambda_2 * sigma) / (pi4 * R_fixed*4)
+plt.figure()
+plt.plot(G_values, Pr_G)
+plt.xlabel("Power Received")
+plt.ylabel("Gain")
+plt.show()
+
+
+Tabulation:
+![WhatsApp Image 2025-11-26 at 20 02 52_7c739a5d](https://github.com/user-attachments/assets/9b0a9cf4-b67b-4b00-baa8-10a45f874277)
+
 
 
 
@@ -36,6 +77,11 @@ transmitter gain, receiver gain, radar frequency, radar cross section, and minim
 
    __Output__:
    
+![WhatsApp Image 2025-11-26 at 20 03 31_ff55c28f](https://github.com/user-attachments/assets/d0bde3fe-e23f-408d-b7f9-f82ebf01252a)
+![WhatsApp Image 2025-11-26 at 20 03 32_8cb22ae0](https://github.com/user-attachments/assets/b9d00b87-ad71-4fea-9380-e1c6b1d4d9da)
+![WhatsApp Image 2025-11-26 at 20 03 32_0d4d4f30](https://github.com/user-attachments/assets/dd26a30c-5fad-4f82-aa99-df0359737538)
+
+
 
 
 
@@ -45,7 +91,7 @@ transmitter gain, receiver gain, radar frequency, radar cross section, and minim
 
    __Result__:
    
-
+Thus, the maximum range of a radar system using radar range equation is verified using python
 
 
 
